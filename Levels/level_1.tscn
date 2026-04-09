@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cmcrodvkxdln7"]
+
+[ext_resource type="Texture2D" uid="uid://cjmg0r5i4wp1" path="res://icon.svg" id="1_n0qsc"]
+[ext_resource type="PackedScene" uid="uid://cnne43088rcnt" path="res://Actors/player.tscn" id="2_dilhk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dilhk"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dilhk"]
+albedo_texture = ExtResource("1_n0qsc")
+uv1_scale = Vector3(40.815, 40.815, 40.815)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3mhv4"]
+material = SubResource("StandardMaterial3D_dilhk")
+size = Vector3(10, 1, 10)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dilhk"]
+
+[sub_resource type="Sky" id="Sky_3mhv4"]
+sky_material = SubResource("ProceduralSkyMaterial_dilhk")
+
+[sub_resource type="Environment" id="Environment_dilhk"]
+background_mode = 2
+sky = SubResource("Sky_3mhv4")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Level1" type="Node3D" unique_id=187818744]
+
+[node name="Player" parent="." unique_id=1810443899 instance=ExtResource("2_dilhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=775939318]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=323256034]
+shape = SubResource("BoxShape3D_dilhk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2075139467]
+mesh = SubResource("BoxMesh_3mhv4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1197697538]
+environment = SubResource("Environment_dilhk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1156715846]
+transform = Transform3D(0.49999985, -0.86602545, 1.03827595e-08, -0.6123724, -0.3535532, 0.70710677, -0.6123724, -0.3535533, -0.70710665, 0, 4, 0)
+shadow_enabled = true

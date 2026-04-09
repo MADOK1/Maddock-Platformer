@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cnne43088rcnt"]
+
+[ext_resource type="Script" uid="uid://cvxw73iprukmr" path="res://Actors/player.gd" id="1_sor1j"]
+[ext_resource type="PackedScene" uid="uid://cxg83odh6qwyk" path="res://Actors/maddock_bones_all_as_one.tscn" id="3_xk7p5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sor1j"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y2lmi"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y2lmi"]
+top_radius = 0.05
+bottom_radius = 0.2
+height = 1.0
+
+[node name="Player" type="CharacterBody3D" unique_id=1262067621]
+script = ExtResource("1_sor1j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1318523602]
+shape = SubResource("CapsuleShape3D_sor1j")
+
+[node name="CameraAnchor" type="Node3D" parent="." unique_id=534338089]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor" unique_id=365169753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+current = true
+
+[node name="Sprite3D" type="Sprite3D" parent="CameraAnchor" unique_id=106675703]
+transform = Transform3D(0.07, 0, 0, 0, 0.06999999, 0, 0, 0, 0.06999999, 0, 0.11896807, 0)
+texture = SubResource("ViewportTexture_y2lmi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraAnchor" unique_id=1828038513]
+transform = Transform3D(1, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999996, -0.049863502, 0.28129625, -0.23371215)
+mesh = SubResource("CylinderMesh_y2lmi")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=60636529]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(3000, 4096)
+
+[node name="MaddockBones" parent="SubViewport" unique_id=980035729 instance=ExtResource("3_xk7p5")]
