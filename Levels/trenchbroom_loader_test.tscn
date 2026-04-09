@@ -27,6 +27,15 @@ sky_material = SubResource("ProceduralSkyMaterial_fwyfb")
 background_mode = 2
 sky = SubResource("Sky_01de7")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fwyfb"]
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_01de7"]
+size = Vector3(0.1, 0.1, 0.1)
+
 [node name="Trenchbroom Loader Test" type="Node3D" unique_id=980319840]
 
 [node name="TBLoader" type="TBLoader" parent="." unique_id=237096438]
@@ -55,3 +64,21 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 25, 
 shadow_enabled = true
 spot_range = 4096.0
 spot_attenuation = 0.1
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=98225239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.104989, 27.5528, -8.746163)
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_fwyfb")
+draw_pass_1 = SubResource("BoxMesh_01de7")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=901219500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.162575, 27.5528, -0.5203028)
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_fwyfb")
+draw_pass_1 = SubResource("BoxMesh_01de7")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="." unique_id=2046209613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.040672, 27.5528, -14.807731)
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_fwyfb")
+draw_pass_1 = SubResource("BoxMesh_01de7")
