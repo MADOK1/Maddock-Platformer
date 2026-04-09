@@ -8,18 +8,16 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_y2lmi"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_y2lmi"]
-top_radius = 0.05
-bottom_radius = 0.2
-height = 1.0
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y2lmi"]
-direction = Vector3(0, 1, 0)
-spread = 20.0
-initial_velocity_max = 20.0
+direction = Vector3(0, 0, 1)
+spread = 180.0
+initial_velocity_max = 10.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_xk7p5"]
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="SphereMesh" id="SphereMesh_y2lmi"]
+radius = 0.1
+height = 0.2
+radial_segments = 4
+rings = 1
 
 [node name="Player" type="CharacterBody3D" unique_id=1262067621]
 script = ExtResource("1_sor1j")
@@ -36,11 +34,10 @@ current = true
 
 [node name="Sprite3D" type="Sprite3D" parent="CameraAnchor" unique_id=106675703]
 transform = Transform3D(0.07, 0, 0, 0, 0.06999999, 0, 0, 0, 0.06999999, 0, 0.11896807, 0)
+billboard = 1
+shaded = true
+alpha_cut = 2
 texture = SubResource("ViewportTexture_y2lmi")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraAnchor" unique_id=1828038513]
-transform = Transform3D(1, 0, 0, 0, 0.9999996, 0, 0, 0, 0.9999996, -0.049863502, 0.28129625, -0.23371215)
-mesh = SubResource("CylinderMesh_y2lmi")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=60636529]
 disable_3d = true
@@ -50,6 +47,11 @@ size = Vector2i(3000, 4096)
 [node name="MaddockBones" parent="SubViewport" unique_id=980035729 instance=ExtResource("3_xk7p5")]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=526664546]
-amount = 8192
+visible = false
+amount = 128
 process_material = SubResource("ParticleProcessMaterial_y2lmi")
-draw_pass_1 = SubResource("BoxMesh_xk7p5")
+draw_pass_1 = SubResource("SphereMesh_y2lmi")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1500359513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5169358)
+shadow_enabled = true
