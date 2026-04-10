@@ -40,9 +40,9 @@ func _physics_process(delta: float) -> void:
 
 	velocity.y -=9.8*get_physics_process_delta_time()
 	print(velocity)
-	if (velocity.x != 0 or velocity.z != 0) and Animator["parameters/playback"].get_current_node() != "Walk":
+	if (abs(velocity.x) > 0.05 or abs(velocity.z) > 0.05) and Animator["parameters/playback"].get_current_node() != "Walk":
 		Animator["parameters/playback"].travel("Walk")
-	elif (velocity.x == 0 or velocity.z == 0) and Animator["parameters/playback"].get_current_node() != "Idle":
+	elif (abs(velocity.x) <= 0.05 or abs(velocity.z) <= 0.05) and Animator["parameters/playback"].get_current_node() != "Idle":
 		Animator["parameters/playback"].travel("Idle")
 
 

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Globox rayman 2 hd texture
+* source:	https://sketchfab.com/3d-models/globox-rayman-2-hd-texture-280f4f225ff2450c8a56ed376926accc
+* author:	Baim (https://sketchfab.com/abrisamibrahimovic)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Globox rayman 2 hd texture" (https://sketchfab.com/3d-models/globox-rayman-2-hd-texture-280f4f225ff2450c8a56ed376926accc) by Baim (https://sketchfab.com/abrisamibrahimovic) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
