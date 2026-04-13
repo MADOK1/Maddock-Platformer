@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Maddock Platformer"
-run/main_scene="uid://dlux1g4d25x3g"
+run/main_scene="uid://cmcrodvkxdln7"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

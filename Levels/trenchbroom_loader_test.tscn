@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://v52d10k5fc5g" path="res://models/globox/scene.gltf" id="4_5wrxr"]
 [ext_resource type="Texture2D" uid="uid://ck1joeoa6x5f0" path="res://Sprites/globox.png" id="5_863jn"]
 [ext_resource type="Texture2D" uid="uid://dyo0263d8ksx1" path="res://Sprites/maddock.png" id="6_53utv"]
-[ext_resource type="Script" uid="uid://bxpmph408yg10" path="res://addons/terrainy/src/terrain/terrainy.gd" id="7_n7txs"]
-[ext_resource type="Script" uid="uid://c0vor4uojodby" path="res://addons/terrainy/src/terrain/configurations/terrain_noise_configuration.gd" id="8_kpr02"]
 [ext_resource type="Shader" uid="uid://c30yvffdofsd3" path="res://addons/terrainy/shaders/terrain/triplanar_gradient_terrain.gdshader" id="9_g1wq4"]
 [ext_resource type="Texture2D" uid="uid://dd7asn77cggx1" path="res://addons/terrainy/shaders/terrain/gradients/gradient_grass.tres" id="10_m67pm"]
 [ext_resource type="Material" uid="uid://dolvv80m4a8ym" path="res://addons/terrainy/shaders/water/ocean/ocean_water.tres" id="10_xbyni"]
@@ -75,9 +73,6 @@ height = 4.0
 radius = 1.3261719
 height = 3.9459229
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_g1wq4"]
-seed = 1633146990
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fc6if"]
 render_priority = 0
 shader = ExtResource("9_g1wq4")
@@ -95,16 +90,6 @@ shader_parameter/grass_blend_sharpness = 1.0
 shader_parameter/grass_uv_scale = 1.0
 shader_parameter/mountain_blend_sharpness = 1.0
 shader_parameter/mountain_uv_scale = 1.0
-
-[sub_resource type="Resource" id="Resource_m67pm"]
-script = ExtResource("8_kpr02")
-randomize_noise_seed = true
-noise = SubResource("FastNoiseLite_g1wq4")
-size_depth = 4096
-size_width = 4096
-max_terrain_height = 500.0
-terrain_material = SubResource("ShaderMaterial_fc6if")
-metadata/_custom_type_script = "uid://c0vor4uojodby"
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g1wq4"]
 _surfaces = [{
@@ -211,13 +196,6 @@ shape = SubResource("CapsuleShape3D_863jn")
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 billboard = 1
 texture = ExtResource("6_53utv")
-
-[node name="Terrainy" type="Node" parent="." unique_id=1415044260 node_paths=PackedStringArray("terrains")]
-script = ExtResource("7_n7txs")
-terrains = {
-NodePath("../Plane"): SubResource("Resource_m67pm")
-}
-metadata/_custom_type_script = "uid://bxpmph408yg10"
 
 [node name="Plane" type="MeshInstance3D" parent="." unique_id=285573890]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.83154, -105.61127, 96.970535)

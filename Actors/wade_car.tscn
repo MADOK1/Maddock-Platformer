@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b1e2kbv5sxhuw"]
+
+[ext_resource type="Script" uid="uid://di7ae50t6c5t7" path="res://Actors/wade_car.gd" id="1_q4mrf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q4mrf"]
+size = Vector3(1.5, 3, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_q4mrf"]
+inner_radius = 0.1
+outer_radius = 0.5
+rings = 16
+ring_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_q4mrf"]
+size = Vector3(1.5, 3, 1)
+
+[node name="VehicleBody3D" type="VehicleBody3D" unique_id=680685002]
+script = ExtResource("1_q4mrf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=674723875]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_q4mrf")
+
+[node name="VehicleWheelBackLeft" type="VehicleWheel3D" parent="." unique_id=1870934948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -1)
+use_as_traction = true
+suspension_travel = 0.5
+suspension_stiffness = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheelBackLeft" unique_id=351483727]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("TorusMesh_q4mrf")
+
+[node name="VehicleWheelBackRight" type="VehicleWheel3D" parent="." unique_id=440406471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, -1)
+use_as_traction = true
+suspension_travel = 0.5
+suspension_stiffness = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheelBackRight" unique_id=1456993512]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("TorusMesh_q4mrf")
+
+[node name="VehicleWheelFrontLeft" type="VehicleWheel3D" parent="." unique_id=622058354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 1)
+use_as_steering = true
+suspension_travel = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheelFrontLeft" unique_id=1114594251]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("TorusMesh_q4mrf")
+
+[node name="VehicleWheelFrontRight" type="VehicleWheel3D" parent="." unique_id=288190453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, 1)
+use_as_steering = true
+suspension_travel = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheelFrontRight" unique_id=1068574902]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("TorusMesh_q4mrf")
+
+[node name="WadeCar" type="Node3D" parent="." unique_id=190310973]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=198056581]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_q4mrf")
+
+[node name="CameraAnchor" type="Node3D" parent="." unique_id=1823029192]
+transform = Transform3D(1, 0, 0, 0, 0.9306668, -0.36586785, 0, 0.36586785, 0.9306668, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor" unique_id=113556375]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -10)
