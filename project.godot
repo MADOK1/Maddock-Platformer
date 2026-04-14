@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Maddock Platformer"
-run/main_scene="uid://cmcrodvkxdln7"
+run/main_scene="uid://cfrvm8tbpk146"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,9 +19,15 @@ config/icon="res://icon.svg"
 
 GameHandler="*uid://dr6hgtgp1sppa"
 
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/tbloader/plugin.cfg", "res://addons/terrainy/plugin.cfg")
+enabled=PackedStringArray("res://addons/physics_collision_import_generator/plugin.cfg", "res://addons/tbloader/plugin.cfg", "res://addons/terrainy/plugin.cfg")
 
 [input]
 
@@ -62,4 +68,7 @@ Reset={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+anti_aliasing/quality/msaa_2d=3
+anti_aliasing/quality/msaa_3d=3

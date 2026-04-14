@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cfrvm8tbpk146"]
+
+[ext_resource type="PackedScene" uid="uid://dkkvv8yeon1p6" path="res://models/wuhu island/wuhu-island.glb" id="1_y1g4v"]
+[ext_resource type="PackedScene" uid="uid://cnne43088rcnt" path="res://Actors/player.tscn" id="2_s6vke"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s6vke"]
+sky_top_color = Color(0.28627452, 0.6156863, 1, 1)
+
+[sub_resource type="Sky" id="Sky_01de7"]
+sky_material = SubResource("ProceduralSkyMaterial_s6vke")
+
+[sub_resource type="Environment" id="Environment_aun34"]
+background_mode = 2
+sky = SubResource("Sky_01de7")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.5
+
+[node name="WuhuIsland" type="Node3D" unique_id=1041077914]
+
+[node name="Sketchfab_Scene" parent="." unique_id=798622270 instance=ExtResource("1_y1g4v")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="Player" parent="." unique_id=1262067621 instance=ExtResource("2_s6vke")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -237, 10, 234)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=406280061]
+environment = SubResource("Environment_aun34")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1615359493]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+shadow_enabled = true
