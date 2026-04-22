@@ -187,6 +187,7 @@ texture = ExtResource("5_863jn")
 
 [node name="Maddock" type="StaticBody3D" parent="." unique_id=2118682879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.818314, 2.2665446, -30.544712)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Maddock" unique_id=1844164658]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9999998, 0)
